@@ -8,6 +8,7 @@ import { IngredientItem, IngredientHeading, IngredientImage, IngredientUuid } fr
 export default function Ingredient(props: IngredientModel): JSX.Element {
   
   const [selected, setSelected] = useState(false)
+  const [hovered, setHovered] = useState(false)
 
   const [hydrated, setHydrated] = useState(false)
   useEffect(() => {
@@ -17,16 +18,26 @@ export default function Ingredient(props: IngredientModel): JSX.Element {
     return <></>
   }
   
-  function handleClick(event: React.MouseEvent<HTMLLIElement>): void {
+  function handleClick(event: React.MouseEvent<HTMLElement>): void {
     console.log(event)
     setSelected(!selected)
   }
 
+  function handleMouseEnter(event: React.MouseEvent<HTMLElement>): void {
+    console.log(event)
+    setHovered(true)
+  }
+
+  function handleMouseLeave(event: React.MouseEvent<HTMLElement>): void {
+    console.log(event)
+    setHovered(false)
+  }
+
   return (
-      <IngredientItem onClick={handleClick} $selected={ selected } >
+      <IngredientItem $selected={ selected } onClick={ handleClick } onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
         <IngredientImage $color={ props.color || '#C42' } />
         <IngredientHeading>{ props.heading }</IngredientHeading>
-        <IngredientUuid>{ props.uuid }</IngredientUuid>
+        <IngredientUuid $hovered={ hovered }>{ props.uuid }</IngredientUuid>
       </IngredientItem>
     )
 }
