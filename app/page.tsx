@@ -1,12 +1,18 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import RecipeDashboard from '@/components/RecipeDashboard'
+import { v4 as uuid } from 'uuid';
+import Ingredients from '@/components/Ingredients';
+
+import { Ingredient as IngredientModel } from "@/app/models/Ingredient"
+
+const ingredients: IngredientModel[] = [
+  { heading: 'Arthur', uuid: uuid() },
+  { heading: 'Breno', uuid: uuid() },
+  { heading: 'Higor', uuid: uuid() },
+]
 
 export default function Home() {
   return (
     <>
-      <RecipeDashboard/>
-      <h1>History</h1>
+      <Ingredients ingredients={ ingredients }></Ingredients>
     </>
   )
 }
