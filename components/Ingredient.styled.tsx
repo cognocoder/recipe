@@ -9,7 +9,7 @@ export const IngredientItem = styled.li<{ $selected?: boolean, $uuid?: string }>
 	cursor: pointer;
 	display: flex;
 	gap: 1ex;
-	padding-inline: 1ex;
+	padding-inline: 2ex;
 	width: 100%;
 	
 	&:hover {
@@ -36,6 +36,5 @@ export const IngredientImage = styled.div<{ $color?: string }>`
 	background-color: ${ props => props.$color || "#4444" };
 	border-radius: 4px;
 	height: 1rem;
-	margin-left: 2ex;
 	min-width: 1rem;
 `
