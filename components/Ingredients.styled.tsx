@@ -1,16 +1,28 @@
 import { styled } from "styled-components";
 
 export const IngredientListHeader = styled.section`
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	gap: 2ex;
-	margin-inline: 2ex;
-	user-select: none;
+	& header {
+		align-items: center;
+		border-radius: 1ex;
+		cursor: pointer;
+		display: flex;
+		gap: 2ex;
+		margin: 1ex;
+		padding: 1ex;
+		user-select: none;
 
-	& h2 {
-		margin-block: 1ex;
+		&:hover {
+			background-color: #eef;
+			box-shadow: 0px 3px 6px #4446;
+		}
+
+		& h2 {
+			margin: 0;
+		}
 	}
+
+	border-radius: 1ex;
+	box-sizing: border-box;
 `
 
 export const IngredientList = styled.ul<{ $collapse: boolean }>`

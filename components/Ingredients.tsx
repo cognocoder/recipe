@@ -23,16 +23,19 @@ export default function Ingredients(props: { ingredients: IngredientModel[] }): 
 	return (
 		<>
 			<IngredientListHeader onClick={handleClick}>
-				{ingredientListIcon} <h2>Ingredients</h2>
+				<header>
+					{ingredientListIcon} 
+					<h2>Ingredients</h2>
+				</header>
+				<IngredientList $collapse={ collapseIngredientList }>{
+					props.ingredients.map(ingredient => {
+						return <Ingredient
+							key={ingredient.uuid}
+							heading={ingredient.heading}
+							uuid={ingredient.uuid}/>
+					})
+				}</IngredientList>
 			</IngredientListHeader>
-			<IngredientList $collapse={ collapseIngredientList }>{
-				props.ingredients.map(ingredient => {
-					return <Ingredient
-						key={ingredient.uuid}
-						heading={ingredient.heading}
-						uuid={ingredient.uuid}/>
-				})
-			}</IngredientList>
 		</>
 	)
 }

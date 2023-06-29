@@ -21,6 +21,7 @@ export default function Ingredient(props: IngredientModel): JSX.Element {
   function handleClick(event: React.MouseEvent<HTMLElement>): void {
     console.log(event)
     setSelected(!selected)
+    event.stopPropagation()
   }
 
   function handleMouseEnter(event: React.MouseEvent<HTMLElement>): void {
