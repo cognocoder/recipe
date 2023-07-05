@@ -33,3 +33,10 @@ export const RecipeUuid = styled.span<{ $hovered?: boolean }>`
 	white-space: nowrap;
 	display: ${ props => props.$hovered ? 'unset' : 'none' };
 `
+
+export const RecipeImage = styled.div<{ $color?: string }>`
+	background-color: ${ props => props.$color || "#4444" };
+	border-radius: 4px;
+	height: 1rem;
+	min-width: 1rem;
+`

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { Recipe as RecipeModel } from "@/app/models/Recipe"
 //importacao da interface de Recipe
-import { RecipeItem, RecipeHeading, RecipeUuid } from "./Recipe.styled"
+import { RecipeItem, RecipeHeading, RecipeUuid, RecipeImage } from "./Recipe.styled"
 //importacao do estilo de ingrediend 
 
 export default function Recipe(props: RecipeModel): JSX.Element {
@@ -40,6 +40,7 @@ export default function Recipe(props: RecipeModel): JSX.Element {
 
   return (
     <RecipeItem $selected={selected} onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <RecipeImage $color={ props.color || '#C42' } />
       <RecipeHeading>{props.heading}</RecipeHeading>
       <RecipeUuid $hovered={hovered}>{props.uuid}</RecipeUuid>
     </RecipeItem>
